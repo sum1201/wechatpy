@@ -9,7 +9,7 @@ from wechatpy.pay.base import BaseWeChatPayAPI
 
 class WeChatMicroPay(BaseWeChatPayAPI):
     def create(self, body, total_fee, auth_code, client_ip=None, out_trade_no=None, detail=None, attach=None,
-               fee_type='CNY', goods_tag=None, device_info=None, limit_pay=None):
+               fee_type='CNY', goods_tag=None, device_info=None, limit_pay=None, receipt='Y'):
         """
         刷卡支付接口
         :param device_info: 可选，终端设备号(商户自定义，如门店编号)
@@ -23,6 +23,7 @@ class WeChatMicroPay(BaseWeChatPayAPI):
         :param goods_tag: 可选，商品标记，代金券或立减优惠功能的参数
         :param limit_pay: 可选，指定支付方式，no_credit--指定不能使用信用卡支付
         :param auth_code: 授权码，扫码支付授权码，设备读取用户微信中的条码或者二维码信息
+        :param receipt: Y，传入Y时，支付成功消息和支付详情页将出现开票入口。需要在微信支付商户平台或微信公众平台开通电子发票功能，传此字段才可生效
         :return: 返回的结果数据
         """
         now = datetime.now()
