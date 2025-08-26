@@ -65,6 +65,3 @@ class WeChatOAuth(BaseWeChatAPI):
                 "user_ticket": user_ticket,
             },
         )
-
-
-
